@@ -1,5 +1,26 @@
 import pandas as pd
 from shapely.wkt import loads
+import json
+
+def read_json_file(file_path):
+    """
+    Read JSON data from a file.
+
+    Args:
+        file_path (str): The path to the JSON file.
+
+    Returns:
+        dict: The parsed JSON data.
+
+    """
+    with open(file_path, 'r') as file:
+        data = json.load(file)
+    return data
+
+
+# Example usage
+file_path = 'data.json'  # Replace with the path to your JSON file
+data = read_json_file(file_path)
 
 def convert_date_columns(df, date_columns):
     # Convert 'Date' column to correct format
