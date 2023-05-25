@@ -1,6 +1,7 @@
 import pandas as pd
 from shapely.wkt import loads
 import json
+import regex as re
 
 def read_json_file(file_path):
     """
@@ -17,10 +18,6 @@ def read_json_file(file_path):
         data = json.load(file)
     return data
 
-
-# Example usage
-file_path = 'data.json'  # Replace with the path to your JSON file
-data = read_json_file(file_path)
 
 def convert_date_columns(df, date_columns):
     # Convert 'Date' column to correct format
@@ -66,3 +63,20 @@ def load_wkt_coordinates(df, column_name):
     """
     df[column_name] = df[column_name].apply(lambda x: loads(x))
     return df
+
+
+# create a new function to clean the tweets 
+def remove_hashtags_usernames(tweet):
+    # Use regex to match hashtags (starting with #) and usernames (starting with @)
+    tweet = re.sub(r'#\w+', '', tweet)
+    tweet = re.sub(r'@\w+', '', tweet)
+    tweet = re.sub(r"http\S+", "", tweet)
+    return tweet
+
+# Search for tweets containing a specific string
+def keyword_query(df, column, word):
+    search_string = word # Replace with your desired search string
+
+    # Use str.contains() to filter tweets
+    filtered_df = df[df[column].str.contains(search_string, case=True)]
+    return(filtered_df)
