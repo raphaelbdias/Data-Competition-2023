@@ -1,9 +1,9 @@
 # Data-Competition-2023
 
-## Higher Education 
+
 ![alt text](https://github.com/user-attachments/assets/6912c50d-ae02-44c6-aca2-1677cb66faa0?raw=true)
 
-Analytics Data Competition 2023 - Problem Statement
+## Higher Education Analytics Data Competition 2023 - Problem Statement
 This is the problem statement for Phase One of the 2023 Higher Education Analytics Data Competition. The competition focuses on analyzing accessible transportation services in Hamilton, Canada, with the goal of improving the customer experience for persons with disabilities using public transit.
 
 ## Background
